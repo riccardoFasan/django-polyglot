@@ -1,0 +1,15 @@
+asgiref==3.5.0
+build==0.7.0
+certifi==2020.6.20
+charset-normalizer==2.0.12
+colorama==0.4.4
+Django==4.0.2
+idna==3.3
+polib==1.1.1
+polyglot-translator==2.0.4
+progressbar2==3.55.0
+python-utils==3.1.0
+requests==2.27.1
+six==1.16.0
+sqlparse==0.4.2
+urllib3==1.26.8
