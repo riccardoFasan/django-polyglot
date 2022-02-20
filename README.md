@@ -19,7 +19,7 @@ Now you have to register Django-Polyglot in your settings like this:
 ```python
 INSTALLED_APPS = [
     ...
-    'django-polyglot'
+    'djangoPolyglot'
 ]
 ```
 
@@ -39,7 +39,7 @@ DEEPL_LICENSE = {
 Django-Polyglot will run for you the Django "makemessages" command, preparing the .po files with the text to be translated. Then Polyglot will use the DeepL APIs to translate this files. Finally the Django "compilemessages" command will be ran and your static translations will be ready.
 
 ```shell
-./manage.py polyglot translate
+./manage.py django-polyglot translate
 ```
 
 > ⚠️To use the translate command you need to set LANGUAGE_CODE, LANGUAGES and LOCALE_PATHS in your settings, according the Django documentation.
@@ -49,7 +49,7 @@ Django-Polyglot will run for you the Django "makemessages" command, preparing th
 It returns DeepL usage info related to your API key, run with:
 
 ```shell
-./manage.py polyglot print_usage_info
+./manage.py django-polyglot print_usage_info
 ```
 
 ### Supported languages
@@ -57,7 +57,7 @@ It returns DeepL usage info related to your API key, run with:
 It returns the list of languages currently supported by DeepL, run with:
 
 ```shell
-./manage.py polyglot print_supported_languages
+./manage.py django-polyglot print_supported_languages
 ```
 
 ## Dependencies

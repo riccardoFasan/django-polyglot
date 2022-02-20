@@ -4,7 +4,7 @@ from django.core import management
 from django.conf import settings
 
 from polyglot import polyglot, arguments
-from .djangoPolyglot import arguments as django_arguments
+from . import arguments as django_arguments
 
 
 class Command(BaseCommand):
