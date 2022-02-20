@@ -29,4 +29,5 @@ setup(
     packages=find_packages(exclude=("tests",)),
     include_package_data=True,
     install_requires=["Django>3.1.7" "polyglot-translator>=2.0.4"],
+    setup_requires=["Django>3.1.7" "polyglot-translator>=2.0.4"],
 )
