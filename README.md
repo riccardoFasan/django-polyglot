@@ -36,13 +36,13 @@ DEEPL_LICENSE = {
 
 ### Translate
 
-Django-Polyglot will run for you the Django "makemessages" command, preparing the .po files with the text to be translated. Then Polyglot will use the DeepL APIs to translate this files. Finally the Django "compilemessages" command will be ran and your static translations will be ready. 
+Django-Polyglot will run for you the Django "makemessages" command, preparing the .po files with the text to be translated. Then Polyglot will use the DeepL APIs to translate this files. Finally the Django "compilemessages" command will be ran and your static translations will be ready.
 
 ```shell
 ./manage.py polyglot translate
 ```
 
-⚠️To use the translate command you need to set LANGUAGE_CODE, LANGUAGES and LOCALE_PATHS in your settings, according the Django documentation. 
+> ⚠️To use the translate command you need to set LANGUAGE_CODE, LANGUAGES and LOCALE_PATHS in your settings, according the Django documentation.
 
 ### Usage info
 
