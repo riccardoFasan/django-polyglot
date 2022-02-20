@@ -2,6 +2,9 @@ from django.core.management.base import BaseCommand, CommandParser
 from django.core import management
 from django.conf import settings
 
+from polyglot import polyglot, arguments
+from .djangoPolyglot import arguments as django_arguments
+
 
 class Command(BaseCommand):
     help = "A custom command to easily make your translations using the DeepL API."
@@ -26,14 +29,24 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options) -> None:
-        method: str = f"{options['action']}"
+        method: str = options["action"]
         getattr(self, method)()
 
     def print_usage_info(self) -> None:
-        pass
+        collector: arguments.ArgumentsCollector = (
+            django_arguments.DjangoArgumentsCollector(action="print_usage_info")
+        )
+        options: arguments.Arguments = collector.arguments
+        polyglot.Polyglot(options).execute_command()
 
     def print_supported_languages(self) -> None:
-        pass
+        collector: arguments.ArgumentsCollector = (
+            django_arguments.DjangoArgumentsCollector(
+                action="print_supported_languages"
+            )
+        )
+        options: arguments.Arguments = collector.arguments
+        polyglot.Polyglot(options).execute_command()
 
     def translate(self) -> None:
         self.__search_locales()

@@ -1,5 +1,5 @@
-import argparse
 from polyglot import arguments
+from . import license
 
 
 class DjangoArgumentsCollector(arguments.ArgumentsCollector):
@@ -13,10 +13,10 @@ class DjangoArgumentsCollector(arguments.ArgumentsCollector):
     def __init__(
         self,
         action: str,
-        source_file: str,
-        target_lang: str,
-        output_directory: str,
-        source_lang: str,
+        source_file: str = "",
+        target_lang: str = "",
+        output_directory: str = "",
+        source_lang: str = "",
     ):
         self.action = action
         self.source_file = source_file
@@ -32,5 +32,8 @@ class DjangoArgumentsCollector(arguments.ArgumentsCollector):
             target_lang=self.target_lang,
             output_directory=self.output_directory,
             source_lang=self.source_lang,
-            license_manager=license.CLILicenseManager(),  # DjangoLicenseManager
+            license_manager=license.DjangoLicenseManager(),  # DjangoLicenseManager
         )
+
+    def _validate_arguments(self) -> None:
+        pass
