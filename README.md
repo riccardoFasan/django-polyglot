@@ -9,7 +9,7 @@ It provides a CLI command that, using the [**DeepL API**](https://www.deepl.com/
 Django Polyglot can be easily installed by running:
 
 ```shell
-pip install django-polyglot
+pip install django-polyglot-translator
 ```
 
 Make sure you've configured Django [internationalization](https://docs.djangoproject.com/en/4.0/topics/i18n/).
