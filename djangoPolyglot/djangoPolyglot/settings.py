@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "command",
+    "testing",
 ]
 
 MIDDLEWARE = [
@@ -120,7 +121,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-LOCALE_PATHS: tuple[str] = (f"{BASE_DIR}/command/locale",)
+LOCALE_PATHS: tuple[str] = (f"{BASE_DIR}/testing/locale",)
 
 DEEPL_LICENSE = {"version": "free", "key": "fc589597-ab6f-4955-b98f-f6ba8fa80246:fx"}
 

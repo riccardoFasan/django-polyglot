@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-20 12:47+0000\n"
+"POT-Creation-Date: 2022-02-20 12:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13,18 +13,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: command/templates/command/test.html:14
+#: djangoPolyglot/settings.py:114
+msgid "English"
+msgstr "Inglese"
+
+#: djangoPolyglot/settings.py:115
+msgid "Italian"
+msgstr "Italiano"
+
+#: testing/templates/command/test.html:14
 msgid ""
 " Polyglot is a CLI tool that automates translation tasks and can be easily integrated into your python softwares. Using the\n"
 "\t\t\tDeepL API, Polyglot generates a translated file from a given source file. "
 msgstr ""
 " Polyglot è uno strumento CLI che automatizza i compiti di traduzione e può essere facilmente integrato nei vostri software python. Usando l\n"
 "\t\t\tDeepL API, Polyglot genera un file tradotto da un dato file sorgente."
-
-#: djangoPolyglot/settings.py:113
-msgid "English"
-msgstr "Inglese"
-
-#: djangoPolyglot/settings.py:114
-msgid "Italian"
-msgstr "Italiano"

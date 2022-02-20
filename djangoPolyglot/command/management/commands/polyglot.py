@@ -85,14 +85,9 @@ class Command(BaseCommand):
                 options: arguments.Arguments = collector.arguments
                 polyglot.Polyglot(options).execute_command()
 
-                os.rename(
-                    f"{locale}/{lang}/LC_MESSAGES/{lang}.po",
-                    f"{locale}/{lang}/LC_MESSAGES/django.po",
-                )
-                os.rename(
-                    f"{locale}/{lang}/LC_MESSAGES/{lang}.mo",
-                    f"{locale}/{lang}/LC_MESSAGES/django.mo",
-                )
+                # Polyglot names output files like this: "{lang_code}.po" so we have to rename in "django.po"
+                os.rename(f"{output_dir}/{lang}.po", f"{output_dir}/django.po")
+                os.rename(f"{output_dir}/{lang}.mo", f"{output_dir}/django.mo")
 
     def __compile_messages(self) -> None:
         print("\n========== compilemessages ==========")
