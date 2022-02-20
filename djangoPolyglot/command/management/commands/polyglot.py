@@ -1,3 +1,4 @@
+import os
 from django.core.management.base import BaseCommand, CommandParser
 from django.core import management
 from django.conf import settings
@@ -49,20 +50,49 @@ class Command(BaseCommand):
         polyglot.Polyglot(options).execute_command()
 
     def translate(self) -> None:
-        self.__search_locales()
         self.__make_messages()
+        self.__run_polyglot()
         self.__compile_messages()
-
-    def __search_locales(self) -> None:
-        print("\nSearching locales...")
-        for locale in settings.LOCALE_PATHS:
-            print(f"Found locale: {locale}")
 
     def __make_messages(self) -> None:
         print("\n========== makemessages ==========")
         management.call_command(
             "makemessages", locale=self.__languages, domain="django"
         )
+
+    def __run_polyglot(self) -> None:
+        print("\n========== polyglot ==========")
+
+        source_lang: str = settings.LANGUAGE_CODE
+        target_langs: list[str] = [
+            lang[0] for lang in settings.LANGUAGES if lang[0] != source_lang
+        ]
+
+        for locale in settings.LOCALE_PATHS:
+            source_file: str = f"{locale}/{source_lang}/LC_MESSAGES/django.po"
+            print(f'Tranlating locale: "{source_file}"...\n')
+            for lang in target_langs:
+                output_dir: str = f"{locale}/{lang}/LC_MESSAGES/"
+                collector: arguments.ArgumentsCollector = (
+                    django_arguments.DjangoArgumentsCollector(
+                        action="translate",
+                        source_file=source_file,
+                        target_lang=lang.upper(),
+                        output_directory=output_dir,
+                        source_lang=source_lang.upper(),
+                    )
+                )
+                options: arguments.Arguments = collector.arguments
+                polyglot.Polyglot(options).execute_command()
+
+                os.rename(
+                    f"{locale}/{lang}/LC_MESSAGES/{lang}.po",
+                    f"{locale}/{lang}/LC_MESSAGES/django.po",
+                )
+                os.rename(
+                    f"{locale}/{lang}/LC_MESSAGES/{lang}.mo",
+                    f"{locale}/{lang}/LC_MESSAGES/django.mo",
+                )
 
     def __compile_messages(self) -> None:
         print("\n========== compilemessages ==========")
