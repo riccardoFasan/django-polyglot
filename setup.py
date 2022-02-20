@@ -7,7 +7,7 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
 setup(
-    name="django-polyglot",
+    name="django-polyglot-translator",
     version=djangoPolyglot.__version__,
     description="Polyglot integration for Django Web Framework",
     long_description=README,
