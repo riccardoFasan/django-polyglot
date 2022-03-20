@@ -26,7 +26,7 @@ INSTALLED_APPS = [
 Finally, you need to store your DeepL API key in your settings.
 
 ```python
-DEEPL_LICENSE = {
+POLYGLOT_DEEPL_LICENSE = {
     'key' : 'your_key',
     'version' : 'free' # Write "pro" if you're using the pro version.
 }
@@ -42,7 +42,7 @@ Django-Polyglot will run for you the Django "makemessages" command, preparing th
 ./manage.py django-polyglot translate
 ```
 
-> ⚠️To use the translate command you need to set LANGUAGE_CODE, LANGUAGES and LOCALE_PATHS in your settings, according the Django documentation.
+> ⚠️To use the translate command you need to set **LANGUAGE_CODE**, **LANGUAGES** and **LOCALE_PATHS** in your settings, according the Django documentation.
 
 ### Usage info
 
