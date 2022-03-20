@@ -26,7 +26,7 @@ INSTALLED_APPS = [
 Finally, you need to store your DeepL API key in your settings.
 
 ```python
-DEEPL_LICENSE = {
+POLYGLOT_DEEPL_LICENSE = {
     'key' : 'your_key',
     'version' : 'free' # Write "pro" if you're using the pro version.
 }
