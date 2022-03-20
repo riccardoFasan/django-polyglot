@@ -42,7 +42,7 @@ Django-Polyglot will run for you the Django "makemessages" command, preparing th
 ./manage.py django-polyglot translate
 ```
 
-> ⚠️To use the translate command you need to set LANGUAGE_CODE, LANGUAGES and LOCALE_PATHS in your settings, according the Django documentation.
+> ⚠️To use the translate command you need to set **LANGUAGE_CODE**, **LANGUAGES** and **LOCALE_PATHS** in your settings, according the Django documentation.
 
 ### Usage info
 
