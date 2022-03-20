@@ -14,7 +14,7 @@ class LicenseError(Exception):
 
 class DjangoLicenseManager(license.LicenseManager):
     def get_license(self) -> license.License:
-        deepl_license: dict[str, str] = settings.DEEPL_LICENSE
+        deepl_license: dict[str, str] = settings.POLYGLOT_DEEPL_LICENSE
         try:
             key: str = deepl_license["key"]
             version: license.LicenseVersion = license.LicenseVersion(

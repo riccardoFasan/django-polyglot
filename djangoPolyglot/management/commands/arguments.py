@@ -32,7 +32,7 @@ class DjangoArgumentsCollector(arguments.ArgumentsCollector):
             target_lang=self.target_lang,
             output_directory=self.output_directory,
             source_lang=self.source_lang,
-            license_manager=license.DjangoLicenseManager(),  # DjangoLicenseManager
+            license_manager=license.DjangoLicenseManager(),
         )
 
     def _validate_arguments(self) -> None:
