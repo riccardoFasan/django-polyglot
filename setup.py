@@ -25,8 +25,8 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.8",
+    python_requires=">=3.10",
     packages=find_packages(exclude=("tests",)),
     include_package_data=True,
-    install_requires=["Django>3.1.7", "polyglot-translator>=2.1.3"],
+    install_requires=["Django>3.1.7", "polyglot-translator>=2.2.0"],
 )
