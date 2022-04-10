@@ -3,26 +3,21 @@ from django.conf import settings
 
 
 class LicenseError(Exception):
-    license: dict[str, str]
+    __key: str
 
-    def __init__(self, license: dict[str, str]):
-        self.license = license
+    def __init__(self, key: str) -> None:
+        self.__key = key
         super().__init__(
-            f"\n\nThe provided license is empty or invalid.\n Your license is: {self.license}"
+            f"\n\nThe provided license is empty or invalid.\n Your license is: {self.__key}"
         )
 
 
 class DjangoLicenseManager(license.LicenseManager):
-    def get_license(self) -> license.License:
-        deepl_license: dict[str, str] = settings.POLYGLOT_DEEPL_LICENSE
-        try:
-            key: str = deepl_license["key"]
-            version: license.LicenseVersion = license.LicenseVersion(
-                deepl_license["version"]
-            )
-            return license.License(key=key, version=version)
-        except:
-            raise LicenseError(license=deepl_license)
+    def get_license(self) -> str:
+        key: str = settings.POLYGLOT_DEEPL_LICENSE
+        if key is not None and key != "":
+            return key
+        raise LicenseError(key)
 
     def set_license(self) -> None:
         pass
