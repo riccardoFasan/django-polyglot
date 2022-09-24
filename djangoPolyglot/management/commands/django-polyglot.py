@@ -10,11 +10,11 @@ from . import arguments as django_arguments
 class Command(BaseCommand):
     help = "A custom command to easily make your translations using the DeepL API."
 
-    __languages: list[str]
-    __actions: list[str] = [
+    __languages: list
+    __actions: list = [
         "translate",
-        "print_supported_languages",
-        "print_usage_info",
+        "languages",
+        "info",
     ]
 
     def __init__(self):
@@ -30,8 +30,11 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options) -> None:
-        method: str = options["action"]
-        getattr(self, method)()
+        action: str = options["action"]
+        if action == "translate":
+            self.translate()
+        elif action == "languages":
+            self.translate()
 
     def print_usage_info(self) -> None:
         collector: arguments.ArgumentsCollector = (
@@ -64,7 +67,7 @@ class Command(BaseCommand):
         print("\n========== polyglot ==========")
 
         source_lang: str = settings.LANGUAGE_CODE
-        target_langs: list[str] = [
+        target_langs: list = [
             lang[0] for lang in settings.LANGUAGES if lang[0] != source_lang
         ]
 
